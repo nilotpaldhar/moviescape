@@ -1,0 +1,15 @@
+@import './variables';
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    // background-color: $secondary;
+    // color: $light;
+}
+
+::selection {
+    background: $primary;
+}

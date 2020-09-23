@@ -1,0 +1,37 @@
+@import '../../assets/sass/variables';
+@import '../../assets/sass/mixins';
+
+.footer {
+    flex-shrink: 0;
+    background-color: $secondary;
+    color: $light;
+    padding: 2rem 0;
+    border-top: 1px solid rgba($white, 0.05);
+    text-align: center;
+
+    @include respond(large) {
+        padding: 3.125rem 0;
+    }
+
+    &__text {
+        margin: .7rem 0 0 0;
+
+        @include respond(large) {
+            margin: 1rem 0 0 0;
+        }
+    }
+
+    &__link,
+    &__link:link,
+    &__link:visited {
+        display: inline-block;
+        font-weight: 600;
+        color: inherit;
+        transition: ease-in;
+
+        &:hover {
+            text-decoration: none;
+            opacity: 0.8;
+        }
+    }
+}

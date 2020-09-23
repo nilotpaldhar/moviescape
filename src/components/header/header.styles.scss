@@ -1,0 +1,18 @@
+@import '../../assets/sass/variables';
+
+.navbar {
+    .navbar-brand {
+        margin-bottom: 0.4rem;
+        margin-right: 4rem;
+    }
+
+    .nav-link {
+        color: $light;
+        text-transform: uppercase;
+        padding: .5rem .7rem;
+
+        &.active {
+            color: $primary;
+        }
+    }
+}

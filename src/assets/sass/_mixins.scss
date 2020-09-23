@@ -1,0 +1,40 @@
+@import './variables';
+
+// Media query manager
+@mixin respond($breakpoint) {
+
+    // For smartphones and featured phones
+    @if $breakpoint==small {
+        @media only screen and (min-width: $sm) {
+            @content;
+        }
+    }
+
+    // For Tablets 
+    @if $breakpoint==medium {
+        @media only screen and (min-width: $md) {
+            @content;
+        }
+    }
+
+    // For Tablets and small laptops
+    @if $breakpoint==large {
+        @media only screen and (min-width: $lg) {
+            @content;
+        }
+    }
+
+    // For laptops and medium desktops
+    @if $breakpoint==x-large {
+        @media only screen and (min-width: $xl) {
+            @content;
+        }
+    }
+
+    // For large desktops
+    @if $breakpoint==huge {
+        @media only screen and (min-width: $huge) {
+            @content;
+        }
+    }
+}
