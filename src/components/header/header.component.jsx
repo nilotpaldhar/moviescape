@@ -13,7 +13,7 @@ const Navigation = () => {
 			bg='secondary'
 			fixed='top'
 			variant='dark'
-			expand='lg'
+			expand='md'
 			className='py-3'>
 			<Container>
 				<Navbar.Brand href='!#'>

@@ -1,15 +1,27 @@
 @import '../../assets/sass/variables';
+@import '../../assets/sass/mixins';
 
 .navbar {
+    border-bottom: 1px solid rgba($white, 0.05);
+
     .navbar-brand {
         margin-bottom: 0.4rem;
-        margin-right: 4rem;
+        margin-right: 1rem;
+
+        @include respond(medium) {
+            margin-right: 4rem;
+        }
     }
 
     .nav-link {
         color: $light;
         text-transform: uppercase;
         padding: .5rem .7rem;
+        transition: all .3s ease-in;
+
+        &:hover {
+            color: $primary;
+        }
 
         &.active {
             color: $primary;

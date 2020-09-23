@@ -1,0 +1,57 @@
+@import '../../assets/sass/variables';
+@import '../../assets/sass/mixins';
+
+.mediacard {
+    width: 100%;
+    margin-bottom: 2rem;
+    position: relative;
+
+    &__img {
+        display: block;
+        width: 100%;
+    }
+
+    &__rating {
+        position: absolute;
+        background-color: rgba($secondary, 0.3);
+        top: .8rem;
+        right: .8rem;
+        height: 2rem;
+        width: 2rem;
+        line-height: 2rem;
+        border: 1px solid #48EE3B;
+        border-radius: 50%;
+        color: $white;
+        font-size: .8rem;
+        font-weight: 300;
+        text-align: center;
+    }
+
+    &__body {
+        margin-top: .5rem;
+    }
+
+    &__name,
+    &__name:link,
+    &__name:visited {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $white;
+        text-decoration: none;
+        transition: all .3s ease-in;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    &__desc {
+        font-size: .875rem;
+        font-weight: 300;
+    }
+
+    &__date {
+        display: inline-block;
+        margin-right: .7rem;
+    }
+}
