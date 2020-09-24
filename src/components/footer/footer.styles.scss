@@ -9,16 +9,12 @@
     border-top: 1px solid rgba($white, 0.05);
     text-align: center;
 
-    @include respond(large) {
-        padding: 3.125rem 0;
-    }
+
 
     &__text {
-        margin: .7rem 0 0 0;
-
-        @include respond(large) {
-            margin: 1rem 0 0 0;
-        }
+        margin: .5rem auto 0 auto;
+        max-width: 60ch;
+        text-align: center;
     }
 
     &__link,
@@ -33,5 +29,11 @@
             text-decoration: none;
             opacity: 0.8;
         }
+    }
+
+    &__moviedb-logo {
+        display: inline-block;
+        margin: 0 5px;
+        width: 10rem;
     }
 }

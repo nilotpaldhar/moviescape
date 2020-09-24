@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
 
+import { get } from './api/config.api';
+
 import './App.scss';
 
-function App() {
+const App = () => {
+	useEffect(() => {
+		get('/movie/popular')
+			.then((res) => console.log(res.data))
+			.catch((error) => console.log(error));
+	});
 	return (
 		<div className='app'>
 			<Header />
@@ -13,6 +20,6 @@ function App() {
 			<Footer />
 		</div>
 	);
-}
+};
 
 export default App;
