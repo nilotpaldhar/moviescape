@@ -52,6 +52,11 @@
 
     &__date {
         display: inline-block;
-        margin-right: .7rem;
+
+        &::after {
+            content: '\007C';
+            display: inline-block;
+            margin: 0 .5rem;
+        }
     }
 }

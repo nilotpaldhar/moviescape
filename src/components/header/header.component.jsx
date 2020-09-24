@@ -11,7 +11,7 @@ const Navigation = () => {
 	return (
 		<Navbar
 			bg='secondary'
-			fixed='top'
+			sticky='top'
 			variant='dark'
 			expand='md'
 			className='py-3'>
