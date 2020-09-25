@@ -45,7 +45,7 @@ export const fetchNowPlayingMoviesFailure = (errorMessage) => ({
 	payload: errorMessage,
 });
 
-// Fetch Upcommin Movies
+// Fetch Upcomming Movies
 export const fetchUpcommingMoviesStart = () => ({
 	type: MoviesActionTypes.FETCH_UPCOMMING_MOVIES_START,
 });

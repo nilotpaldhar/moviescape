@@ -26,8 +26,3 @@ export const selectGenres = createSelector(
 	[selectMovies],
 	(selectMovies) => selectMovies.genres
 );
-
-export const selectBaseUrl = createSelector(
-	[selectMovies],
-	(selectMovies) => selectMovies.baseUrl
-);

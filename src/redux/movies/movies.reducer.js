@@ -9,7 +9,6 @@ const INITIAL_STATE = {
 	upcomming: [],
 	error: null,
 	genres: [],
-	baseUrl: '/movies',
 };
 
 const moviesReducer = (state = INITIAL_STATE, action) => {

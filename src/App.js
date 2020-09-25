@@ -13,9 +13,8 @@ const App = () => {
 			<Header />
 			<main className='app__content'>
 				<Switch>
-					{/* <Route path='/' component={Movies} /> */}
 					<Route path='/movies' component={MoviesPage} />
-					<Route path='/tv-shows' render={() => <h1>Tv Shows</h1>} />
+					<Route path='/' render={() => <h1>Home</h1>} />
 				</Switch>
 			</main>
 			<Footer />
