@@ -1,10 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 
-import { selectGenres } from '../../redux/movies/movies.selectors';
 import { getGenreNames } from './media-card.utils';
 
 import './media-card.styles.scss';
@@ -40,8 +37,4 @@ const MediaCard = ({ media, baseUrl, genres }) => {
 	);
 };
 
-const mapStateToProps = createStructuredSelector({
-	genres: selectGenres,
-});
-
-export default connect(mapStateToProps)(MediaCard);
+export default MediaCard;

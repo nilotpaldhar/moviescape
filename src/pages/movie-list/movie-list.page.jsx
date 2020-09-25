@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import Hero from '../../components/hero/hero.compoent';
-import MediaCollection from '../../components/media-collection/media-collection.component';
+import MovieCollection from '../../components/movie-collection/movie-collection.component';
 import {
 	selectPopularMovies,
 	selectNowPlayingMovies,
@@ -21,25 +21,18 @@ const MovieListPage = ({
 	return (
 		<>
 			<Hero>
-				<MediaCollection
+				<MovieCollection
 					name='Popular Movies'
-					mediaList={popularMovies}
+					movies={popularMovies}
 					limit={4}
-					baseUrl={match.path}
 				/>
 			</Hero>
-			<MediaCollection
-				name='Now Playing'
-				mediaList={nowPlayingMovies}
-				limit={8}
-				baseUrl={match.path}
-			/>
+			<MovieCollection name='Now Playing' movies={nowPlayingMovies} limit={8} />
 			<hr className='divider' />
-			<MediaCollection
+			<MovieCollection
 				name='Upcomming Movies'
-				mediaList={upcommingMovies}
+				movies={upcommingMovies}
 				limit={8}
-				baseUrl={match.path}
 			/>
 		</>
 	);

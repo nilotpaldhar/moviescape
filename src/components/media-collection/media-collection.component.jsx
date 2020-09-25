@@ -3,11 +3,11 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import MediaCard from '../media-card/media-card.component';
+import MovieCard from '../movie-card/movie-card.component';
 
 import './media-collection.styles.scss';
 
-const MediaCollection = ({ name, limit, mediaList, baseUrl }) => {
+const MediaCollection = ({ name, limit, mediaList }) => {
 	return (
 		<div className='media-collection'>
 			<Container>
@@ -18,12 +18,12 @@ const MediaCollection = ({ name, limit, mediaList, baseUrl }) => {
 								.filter((media, idx) => idx < limit)
 								.map((media) => (
 									<Col key={media.id} xs='12' md='6' lg='3'>
-										<MediaCard media={media} baseUrl={baseUrl} />
+										<MovieCard media={media} />
 									</Col>
 								))
 						: mediaList.map((media) => (
 								<Col key={media.id} xs='12' md='6' lg='3'>
-									<MediaCard media={media} baseUrl={baseUrl} />
+									<MovieCard media={media} />
 								</Col>
 						  ))}
 				</Row>
