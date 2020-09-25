@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -16,13 +17,17 @@ const Navigation = () => {
 			expand='md'
 			className='py-3'>
 			<Container>
-				<Navbar.Brand href='!#'>
+				<Navbar.Brand as={NavLink} to='/'>
 					<Logo className='nav-logo' />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='navbar-nav' />
 				<Navbar.Collapse id='navbar-nav'>
-					<Nav.Link href='#movies'>Movies</Nav.Link>
-					<Nav.Link href='#tv-shows'>TV Shows</Nav.Link>
+					<Nav.Link as={NavLink} to='/movies'>
+						Movies
+					</Nav.Link>
+					<Nav.Link as={NavLink} to='/tv-shows'>
+						TV Shows
+					</Nav.Link>
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>

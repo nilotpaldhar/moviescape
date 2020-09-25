@@ -13,3 +13,10 @@ body {
 ::selection {
     background: $primary;
 }
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: rgba($white, .05);
+    margin: 3.75rem 0;
+}

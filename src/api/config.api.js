@@ -11,7 +11,7 @@ apiClient.interceptors.request.use(
 			headers: {
 				'content-type': 'application/json',
 				Accept: 'application/json',
-				Authorization: process.env.REACT_APP_MOVIEDB_API_ACCESS_TOKEN,
+				Authorization: `Bearer ${process.env.REACT_APP_MOVIEDB_API_ACCESS_TOKEN}`,
 			},
 		};
 	},

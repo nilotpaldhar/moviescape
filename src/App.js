@@ -1,22 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
-
-import { get } from './api/config.api';
+import MoviesPage from './pages/movies/movies.page';
 
 import './App.scss';
 
 const App = () => {
-	useEffect(() => {
-		get('/movie/popular')
-			.then((res) => console.log(res.data))
-			.catch((error) => console.log(error));
-	});
 	return (
 		<div className='app'>
 			<Header />
-			<main className='app__content'>{/* Routes will go here */}</main>
+			<main className='app__content'>
+				<Switch>
+					{/* <Route path='/' component={Movies} /> */}
+					<Route path='/movies' component={MoviesPage} />
+					<Route path='/tv-shows' render={() => <h1>Tv Shows</h1>} />
+				</Switch>
+			</main>
 			<Footer />
 		</div>
 	);
