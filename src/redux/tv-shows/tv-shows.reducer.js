@@ -3,12 +3,12 @@ import { TvShowsActionTypes } from './tv-shows.types';
 const INITIAL_STATE = {
 	isFetching: false,
 	popular: [],
-	genres: [],
+	tvGenres: [],
 	error: null,
 };
 
 const tvShowsReducer = (state = INITIAL_STATE, action) => {
-	switch (action.types) {
+	switch (action.type) {
 		case TvShowsActionTypes.FETCH_TV_SHOWS_GENRE_SUCCESS:
 			return { ...state, genres: action.payload, error: null };
 

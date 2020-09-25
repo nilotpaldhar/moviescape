@@ -4,68 +4,61 @@ import { createStructuredSelector } from 'reselect';
 
 import Hero from '../../components/hero/hero.compoent';
 import MovieCollection from '../../components/movie-collection/movie-collection.component';
+import TvShowCollection from '../../components/tv-show-collection/tv-show-collection.component';
 
 import {
 	fetchPopularMoviesStart,
 	fetchNowPlayingMoviesStart,
-	fetchUpcommingMoviesStart,
 } from '../../redux/movies/movies.actions';
+import { fetchPopularTvShowsStart } from '../../redux/tv-shows/tv-shows.actions';
 import {
 	selectPopularMovies,
 	selectNowPlayingMovies,
-	selectUpcommingMovies,
 } from '../../redux/movies/movies.selectors';
+import { selectPopularTvShows } from '../../redux/tv-shows/tv-shows.selectors';
 
-import './movies.styles.scss';
-
-const MoviesPage = ({
+const HomePage = ({
 	fetchPopularMoviesStart,
 	fetchNowPlayingMoviesStart,
-	fetchUpcommingMoviesStart,
+	fetchPopularTvShowsStart,
+	newMovies,
 	popularMovies,
-	nowPlayingMovies,
-	upcommingMovies,
+	popularTvShows,
 }) => {
 	useEffect(() => {
 		fetchPopularMoviesStart();
 		fetchNowPlayingMoviesStart();
-		fetchUpcommingMoviesStart();
+		fetchPopularTvShowsStart();
 	}, [
 		fetchPopularMoviesStart,
 		fetchNowPlayingMoviesStart,
-		fetchUpcommingMoviesStart,
+		fetchPopularTvShowsStart,
 	]);
-
 	return (
 		<>
 			<Hero>
-				<MovieCollection
-					name='Popular Movies'
-					movies={popularMovies}
-					limit={4}
-				/>
+				<MovieCollection name='New Movies' movies={newMovies} limit={4} />
 			</Hero>
-			<MovieCollection name='Now Playing' movies={nowPlayingMovies} limit={8} />
+			<MovieCollection name='Popular Movies' movies={popularMovies} limit={8} />
 			<hr className='divider' />
-			<MovieCollection
-				name='Upcomming Movies'
-				movies={upcommingMovies}
+			<TvShowCollection
+				name='Popular TV Shows'
+				tvShows={popularTvShows}
 				limit={8}
 			/>
 		</>
 	);
 };
-
 const mapStateToProps = createStructuredSelector({
+	newMovies: selectNowPlayingMovies,
 	popularMovies: selectPopularMovies,
-	nowPlayingMovies: selectNowPlayingMovies,
-	upcommingMovies: selectUpcommingMovies,
+	popularTvShows: selectPopularTvShows,
 });
 
 const mapDispatchToProps = (dispatch) => ({
 	fetchPopularMoviesStart: () => dispatch(fetchPopularMoviesStart()),
 	fetchNowPlayingMoviesStart: () => dispatch(fetchNowPlayingMoviesStart()),
-	fetchUpcommingMoviesStart: () => dispatch(fetchUpcommingMoviesStart()),
+	fetchPopularTvShowsStart: () => dispatch(fetchPopularTvShowsStart()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MoviesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

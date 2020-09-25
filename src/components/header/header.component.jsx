@@ -28,6 +28,9 @@ const Navigation = () => {
 					<Nav.Link as={NavLink} exact to='/movies'>
 						Movies
 					</Nav.Link>
+					<Nav.Link as={NavLink} exact to='/about'>
+						About
+					</Nav.Link>
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>

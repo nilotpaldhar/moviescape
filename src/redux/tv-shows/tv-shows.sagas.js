@@ -22,7 +22,7 @@ export function* fetchGenreAsync() {
 export function* fetchPopularTvShowsAsync() {
 	try {
 		const response = yield tvShowsApi.popularTvShows();
-		yield put(fetchPopularTvShowsSuccess(response.data.genres));
+		yield put(fetchPopularTvShowsSuccess(response.data.results));
 	} catch (error) {
 		const errorMessage = yield error.response.data.status_message;
 		yield put(fetchPopularTvShowsFailure(errorMessage));
