@@ -4,6 +4,7 @@ import { createStructuredSelector } from 'reselect';
 
 import Hero from '../../components/hero/hero.compoent';
 import MovieCollection from '../../components/movie-collection/movie-collection.component';
+import Loader from '../../components/loader/loader.component';
 
 import {
 	fetchPopularMoviesStart,
@@ -14,9 +15,8 @@ import {
 	selectPopularMovies,
 	selectNowPlayingMovies,
 	selectUpcommingMovies,
+	selectIsLoading,
 } from '../../redux/movies/movies.selectors';
-
-import './movies.styles.scss';
 
 const MoviesPage = ({
 	fetchPopularMoviesStart,
@@ -25,6 +25,7 @@ const MoviesPage = ({
 	popularMovies,
 	nowPlayingMovies,
 	upcommingMovies,
+	isLoading,
 }) => {
 	useEffect(() => {
 		fetchPopularMoviesStart();
@@ -35,6 +36,10 @@ const MoviesPage = ({
 		fetchNowPlayingMoviesStart,
 		fetchUpcommingMoviesStart,
 	]);
+
+	if (isLoading) {
+		return <Loader />;
+	}
 
 	return (
 		<>
@@ -60,6 +65,7 @@ const mapStateToProps = createStructuredSelector({
 	popularMovies: selectPopularMovies,
 	nowPlayingMovies: selectNowPlayingMovies,
 	upcommingMovies: selectUpcommingMovies,
+	isLoading: selectIsLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({

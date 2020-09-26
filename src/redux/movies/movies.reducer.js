@@ -1,7 +1,7 @@
 import { MoviesActionTypes } from './movies.types';
 
 const INITIAL_STATE = {
-	isFetching: false,
+	isLoading: false,
 	popular: [],
 	nowPlaying: [],
 	upcomming: [],
@@ -18,14 +18,14 @@ const moviesReducer = (state = INITIAL_STATE, action) => {
 			return { ...state, error: action.payload };
 
 		case MoviesActionTypes.FETCH_POPULAR_MOVIES_START:
-		case MoviesActionTypes.FETCH_NOW_PLAYING_MOVIES_START:
 		case MoviesActionTypes.FETCH_UPCOMMING_MOVIES_START:
-			return { ...state, isFetching: true };
+		case MoviesActionTypes.FETCH_NOW_PLAYING_MOVIES_START:
+			return { ...state, isLoading: true };
 
 		case MoviesActionTypes.FETCH_POPULAR_MOVIES_SUCCESS:
 			return {
 				...state,
-				isFetching: false,
+				isLoading: false,
 				popular: action.payload,
 				error: null,
 			};
@@ -33,7 +33,7 @@ const moviesReducer = (state = INITIAL_STATE, action) => {
 		case MoviesActionTypes.FETCH_NOW_PLAYING_MOVIES_SUCCESS:
 			return {
 				...state,
-				isFetching: false,
+				isLoading: false,
 				nowPlaying: action.payload,
 				error: null,
 			};
@@ -41,7 +41,7 @@ const moviesReducer = (state = INITIAL_STATE, action) => {
 		case MoviesActionTypes.FETCH_UPCOMMING_MOVIES_SUCCESS:
 			return {
 				...state,
-				isFetching: false,
+				isLoading: false,
 				upcomming: action.payload,
 				error: null,
 			};
@@ -49,7 +49,7 @@ const moviesReducer = (state = INITIAL_STATE, action) => {
 		case MoviesActionTypes.FETCH_POPULAR_MOVIES_FAILURE:
 		case MoviesActionTypes.FETCH_NOW_PLAYING_MOVIES_FAILURE:
 		case MoviesActionTypes.FETCH_UPCOMMING_MOVIES_FAILURE:
-			return { ...state, isFetching: false, error: action.payload };
+			return { ...state, isLoading: false, error: action.payload };
 
 		default:
 			return state;
