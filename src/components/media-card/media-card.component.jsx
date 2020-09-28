@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 
-import { getGenreNames } from './media-card.utils';
+import { getGenreNamesFromArray } from '../../utils/getGenreNames';
 
 import './media-card.styles.scss';
 
@@ -33,7 +33,7 @@ const MediaCard = ({ media, baseUrl, genres }) => {
 						''
 					)}
 					<span className='mediacard__genre'>
-						{getGenreNames(genres, media.genre_ids)}
+						{getGenreNamesFromArray(genres, media.genre_ids)}
 					</span>
 				</div>
 			</div>

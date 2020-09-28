@@ -1,40 +1,43 @@
 import React from 'react';
+import { format } from 'date-fns';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+
+import { getGenreNamesFromObj } from '../../utils/getGenreNames';
 
 import VideoPlayer from '../video-player/video-player.component';
 import { ReactComponent as Star } from '../../assets/images/icons/star.svg';
 
 import './media-description.styles.scss';
 
-const MediaDescription = () => {
+const MediaDescription = ({ details, trailerUrl }) => {
 	return (
 		<div className='media-description'>
 			<Container>
 				<Row>
 					<Col xs='12' lg='7'>
-						<VideoPlayer url='' />
+						<VideoPlayer url={trailerUrl} />
 					</Col>
 					<Col xs='12' lg='5' className='mt-4 mt-lg-0'>
 						<h1 className='media-description__name'>
-							The Hustle: The Complete Season
+							{details.original_title}
 						</h1>
 						<div className='media-description__details'>
 							<span className='media-description__rating'>
 								<Star />
-								9.5 / 10
+								<span>{details.vote_average} / 10</span>
 							</span>
-							<span className='media-description__date'>Aug 24, 2020</span>
+							<span className='media-description__date'>
+								{/* Aug 24, 2020 */}
+								{format(new Date(details.release_date), 'MMM dd, yyyy')}
+							</span>
 							<span className='media-description__genre'>
-								Drama, Thriller, Action
+								{getGenreNamesFromObj(details.genres)}
 							</span>
 						</div>
-						<p className='media-description__text'>
-							The work of billionaire tech CEO Donovan Chalmers is so valuable
-							that he hires mercenaries to protect it, and a terrorist group
-							kidnaps his daughter just to get it.
-						</p>
+						<p className='media-description__text'>{details.overview}</p>
 					</Col>
 				</Row>
 			</Container>

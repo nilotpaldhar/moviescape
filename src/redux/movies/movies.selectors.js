@@ -2,9 +2,9 @@ import { createSelector } from 'reselect';
 
 const selectMovies = (state) => state.movies;
 
-export const selectIsLoading = createSelector(
+export const selectIsFetchingPopular = createSelector(
 	[selectMovies],
-	(movies) => movies.isLoading
+	(movies) => movies.isFetchingPopular
 );
 
 export const selectPopularMovies = createSelector(
@@ -12,9 +12,19 @@ export const selectPopularMovies = createSelector(
 	(movies) => movies.popular
 );
 
+export const selectIsFetchingNowPlaying = createSelector(
+	[selectMovies],
+	(movies) => movies.isFetchingNowPlaying
+);
+
 export const selectNowPlayingMovies = createSelector(
 	[selectMovies],
 	(movies) => movies.nowPlaying
+);
+
+export const selectIsFetchingUpcomming = createSelector(
+	[selectMovies],
+	(movies) => movies.isFetchingUpcomming
 );
 
 export const selectUpcommingMovies = createSelector(
