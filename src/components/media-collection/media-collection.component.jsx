@@ -3,8 +3,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-// import MovieCard from '../movie-card/movie-card.component';
-
 import './media-collection.styles.scss';
 
 const MediaCollection = ({ name, limit, mediaList, Component }) => {

@@ -1,0 +1,9 @@
+@import '../../assets/sass/mixins';
+
+.skeleton-loader {
+    padding-top: 3.5rem;
+
+    @include respond(large) {
+        padding-top: 4.3rem;
+    }
+}

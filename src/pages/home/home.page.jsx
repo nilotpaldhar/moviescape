@@ -1,73 +1,19 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
+import React from 'react';
 
 import Hero from '../../components/hero/hero.compoent';
-import MovieCollection from '../../components/movie-collection/movie-collection.component';
-import TvShowCollection from '../../components/tv-show-collection/tv-show-collection.component';
-import Loader from '../../components/loader/loader.component';
+import PopularMovies from '../../components/popular-movies/popular-movies.component';
+import NowPlayingMovies from '../../components/now-playing-movies/now-playing-movies.component';
+import PopularTvShow from '../../components/popular-tv-show/popular-tv-show.component';
 
-import {
-	fetchPopularMoviesStart,
-	fetchNowPlayingMoviesStart,
-} from '../../redux/movies/movies.actions';
-import { fetchPopularTvShowsStart } from '../../redux/tv-shows/tv-shows.actions';
-import {
-	selectPopularMovies,
-	selectNowPlayingMovies,
-	selectIsLoading,
-} from '../../redux/movies/movies.selectors';
-import { selectPopularTvShows } from '../../redux/tv-shows/tv-shows.selectors';
+const HomePage = () => (
+	<>
+		<Hero>
+			<NowPlayingMovies name='New Movies' limit={4} />
+		</Hero>
+		<PopularMovies limit={8} />
+		<hr className='divider' />
+		<PopularTvShow limit={8} />
+	</>
+);
 
-const HomePage = ({
-	fetchPopularMoviesStart,
-	fetchNowPlayingMoviesStart,
-	fetchPopularTvShowsStart,
-	newMovies,
-	popularMovies,
-	popularTvShows,
-	isLoading,
-}) => {
-	useEffect(() => {
-		fetchPopularMoviesStart();
-		fetchNowPlayingMoviesStart();
-		fetchPopularTvShowsStart();
-	}, [
-		fetchPopularMoviesStart,
-		fetchNowPlayingMoviesStart,
-		fetchPopularTvShowsStart,
-	]);
-
-	if (isLoading) {
-		return <Loader />;
-	}
-
-	return (
-		<>
-			<Hero>
-				<MovieCollection name='New Movies' movies={newMovies} limit={4} />
-			</Hero>
-			<MovieCollection name='Popular Movies' movies={popularMovies} limit={8} />
-			<hr className='divider' />
-			<TvShowCollection
-				name='Popular TV Shows'
-				tvShows={popularTvShows}
-				limit={8}
-			/>
-		</>
-	);
-};
-const mapStateToProps = createStructuredSelector({
-	newMovies: selectNowPlayingMovies,
-	popularMovies: selectPopularMovies,
-	popularTvShows: selectPopularTvShows,
-	isLoading: selectIsLoading,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-	fetchPopularMoviesStart: () => dispatch(fetchPopularMoviesStart()),
-	fetchNowPlayingMoviesStart: () => dispatch(fetchNowPlayingMoviesStart()),
-	fetchPopularTvShowsStart: () => dispatch(fetchPopularTvShowsStart()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default HomePage;
