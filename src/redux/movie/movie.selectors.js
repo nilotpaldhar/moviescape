@@ -34,3 +34,9 @@ export const selectMovieCasts = createSelector(
 	[selectMovie],
 	(movie) => movie.casts
 );
+
+// Selector for error
+export const selectError = createSelector(
+	[selectMovie],
+	(movie) => movie.error
+);

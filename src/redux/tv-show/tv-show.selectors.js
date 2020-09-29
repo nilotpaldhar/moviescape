@@ -34,3 +34,9 @@ export const selectTvCasts = createSelector(
 	[selectTvShow],
 	(tvShow) => tvShow.casts
 );
+
+// Selectors for tv show casts
+export const selectError = createSelector(
+	[selectTvShow],
+	(tvShow) => tvShow.error
+);
