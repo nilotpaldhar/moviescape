@@ -25,13 +25,12 @@ const MediaCard = ({ media, baseUrl, genres }) => {
 					{media.original_title || media.name}
 				</Link>
 				<div className='mediacard__desc'>
-					{media.release_date ? (
-						<span className='mediacard__date'>
-							{format(new Date(media.release_date), 'MMM dd, yyyy')}
-						</span>
-					) : (
-						''
-					)}
+					<span className='mediacard__date'>
+						{format(
+							new Date(media.release_date || media.first_air_date),
+							'MMM dd, yyyy'
+						)}
+					</span>
 					<span className='mediacard__genre'>
 						{getGenreNamesFromArray(genres, media.genre_ids)}
 					</span>

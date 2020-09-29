@@ -22,17 +22,23 @@ const MediaDescription = ({ details, trailerUrl }) => {
 					</Col>
 					<Col xs='12' lg='5' className='mt-4 mt-lg-0'>
 						<h1 className='media-description__name'>
-							{details.original_title}
+							{details.original_title || details.original_name}
 						</h1>
 						<div className='media-description__details'>
 							<span className='media-description__rating'>
 								<Star />
 								<span>{details.vote_average} / 10</span>
 							</span>
+							{/* {details.release_date ? ( */}
 							<span className='media-description__date'>
-								{/* Aug 24, 2020 */}
-								{format(new Date(details.release_date), 'MMM dd, yyyy')}
+								{format(
+									new Date(details.release_date || details.first_air_date),
+									'MMM dd, yyyy'
+								)}
 							</span>
+							{/* ) : ( */}
+							{/* '' */}
+							{/* )} */}
 							<span className='media-description__genre'>
 								{getGenreNamesFromObj(details.genres)}
 							</span>
