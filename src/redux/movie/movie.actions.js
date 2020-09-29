@@ -28,7 +28,7 @@ export const fetchMovieVideosSuccess = (data) => ({
 });
 
 export const fetchMovieVideosFailure = (errorMessage) => ({
-	type: MovieActionTypes.FETCHING_MOVIE_VerrorMessageEOS_FAILURE,
+	type: MovieActionTypes.FETCHING_MOVIE_VIDEOS_FAILURE,
 	payload: errorMessage,
 });
 

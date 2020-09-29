@@ -1,4 +1,4 @@
-import { MovieActionTypes } from './movie.types';
+import { TvShowActionTypes } from './tv-show.types';
 
 const INITIAL_STATE = {
 	isFetchingDetails: false,
@@ -10,36 +10,36 @@ const INITIAL_STATE = {
 	error: null,
 };
 
-const movieReducer = (state = INITIAL_STATE, action) => {
+const tvShowReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
-		// Fetching single movie details
-		case MovieActionTypes.FETCHING_MOVIE_DETAILS_START:
+		// Fetching single tv show details
+		case TvShowActionTypes.FETCHING_TV_DETAILS_START:
 			return { ...state, isFetchingDetails: true, details: null };
 
-		case MovieActionTypes.FETCHING_MOVIE_DETAILS_SUCCESS:
+		case TvShowActionTypes.FETCHING_TV_DETAILS_SUCCESS:
 			return { ...state, isFetchingDetails: false, details: action.payload };
 
-		case MovieActionTypes.FETCHING_MOVIE_DETAILS_FAILURE:
+		case TvShowActionTypes.FETCHING_TV_DETAILS_FAILURE:
 			return { ...state, isFetchingDetails: false, error: action.payload };
 
-		// Fetching movie videos
-		case MovieActionTypes.FETCHING_MOVIE_VIDEOS_START:
+		// Fetching tv show videos
+		case TvShowActionTypes.FETCHING_TV_VIDEOS_START:
 			return { ...state, isFetchingVideos: true, videos: [] };
 
-		case MovieActionTypes.FETCHING_MOVIE_VIDEOS_SUCCESS:
+		case TvShowActionTypes.FETCHING_TV_VIDEOS_SUCCESS:
 			return { ...state, isFetchingVideos: false, videos: action.payload };
 
-		case MovieActionTypes.FETCHING_MOVIE_VIDEOS_FAILURE:
+		case TvShowActionTypes.FETCHING_TV_VIDEOS_FAILURE:
 			return { ...state, isFetchingVideos: false, error: action.payload };
 
-		// Fetching movie casts
-		case MovieActionTypes.FETCHING_MOVIE_CASTS_START:
+		// Fetching tv show casts
+		case TvShowActionTypes.FETCHING_TV_CASTS_START:
 			return { ...state, isFetchingCasts: true, casts: [] };
 
-		case MovieActionTypes.FETCHING_MOVIE_CASTS_SUCCESS:
+		case TvShowActionTypes.FETCHING_TV_CASTS_SUCCESS:
 			return { ...state, isFetchingCasts: false, casts: action.payload };
 
-		case MovieActionTypes.FETCHING_MOVIE_CASTS_FAILURE:
+		case TvShowActionTypes.FETCHING_TV_CASTS_FAILURE:
 			return { ...state, isFetchingCasts: false, error: action.payload };
 
 		default:
@@ -47,4 +47,4 @@ const movieReducer = (state = INITIAL_STATE, action) => {
 	}
 };
 
-export default movieReducer;
+export default tvShowReducer;
