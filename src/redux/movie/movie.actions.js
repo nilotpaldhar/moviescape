@@ -31,3 +31,19 @@ export const fetchMovieVideosFailure = (errorMessage) => ({
 	type: MovieActionTypes.FETCHING_MOVIE_VerrorMessageEOS_FAILURE,
 	payload: errorMessage,
 });
+
+// Fetching movie casts
+export const fetchMovieCastsStart = (id) => ({
+	type: MovieActionTypes.FETCHING_MOVIE_CASTS_START,
+	payload: id,
+});
+
+export const fetchMovieCastsSuccess = (data) => ({
+	type: MovieActionTypes.FETCHING_MOVIE_CASTS_SUCCESS,
+	payload: data,
+});
+
+export const fetchMovieCastsFailure = (errorMessage) => ({
+	type: MovieActionTypes.FETCHING_MOVIE_CASTS_FAILURE,
+	payload: errorMessage,
+});

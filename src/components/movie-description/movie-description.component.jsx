@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import MediaDescription from '../media-description/media-description.component';
+import MovieDescriptionSkeleton from './movie-description.skeleton';
 
 import { getMovieTrailerUrl } from '../../utils/getMovieTrailers';
 
@@ -16,13 +17,12 @@ import {
 } from '../../redux/movie/movie.selectors';
 
 const MovieDescription = ({
-	match,
+	id,
 	fetchMovieDetails,
 	fetchMovieVideos,
 	details,
 	videos,
 }) => {
-	const { id } = match.params;
 	const trailerUrl = getMovieTrailerUrl(videos);
 
 	useEffect(() => {
@@ -31,7 +31,7 @@ const MovieDescription = ({
 	}, [fetchMovieDetails, fetchMovieVideos, id]);
 
 	if (!details) {
-		return <h1>Loading...</h1>;
+		return <MovieDescriptionSkeleton />;
 	}
 
 	return <MediaDescription details={details} trailerUrl={trailerUrl} />;
