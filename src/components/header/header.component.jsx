@@ -21,6 +21,7 @@ const Navigation = () => {
 				<Navbar.Brand as={NavLink} to='/'>
 					<Logo className='nav-logo' />
 				</Navbar.Brand>
+				<Navbar.Toggle aria-controls='navbar-nav' />
 				<Navbar.Collapse id='navbar-nav'>
 					<Nav.Link as={NavLink} exact to='/'>
 						Home
@@ -33,7 +34,6 @@ const Navigation = () => {
 					</Nav.Link>
 				</Navbar.Collapse>
 				<Searchbar />
-				<Navbar.Toggle aria-controls='navbar-nav' />
 			</Container>
 		</Navbar>
 	);

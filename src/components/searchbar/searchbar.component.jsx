@@ -2,6 +2,9 @@ import React from 'react';
 import Autosuggest from 'react-autosuggest';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { useHistory } from 'react-router-dom';
+
+import SearchResult from '../search-result/search-result.component';
 
 import {
 	selectIsLoading,
@@ -23,6 +26,8 @@ const Searchbar = ({
 	clearSearchResults,
 	fetchSearchResults,
 }) => {
+	const history = useHistory();
+
 	// Handle input change
 	const handleChange = (_event, { newValue }) => {
 		setQuery(newValue);
@@ -43,22 +48,12 @@ const Searchbar = ({
 		fetchSearchResults(value);
 	};
 
-	const getSuggestionValue = (result) => ({
-		id: result.id,
-		title: result.original_title,
-	});
+	const getSuggestionValue = (result) => result.original_title;
 
-	const renderSuggestion = (result) => {
-		const { id, title } = result;
-		return (
-			<div className='test'>
-				<a href={`/movies/${id}`}>{title}</a>
-			</div>
-		);
-	};
+	const renderSuggestion = (result) => <SearchResult result={result} />;
 
 	return (
-		<div>
+		<div className='searchbar'>
 			<Autosuggest
 				suggestions={results}
 				inputProps={inputProps}
@@ -66,6 +61,11 @@ const Searchbar = ({
 				onSuggestionsClearRequested={() => clearSearchResults()}
 				getSuggestionValue={getSuggestionValue}
 				renderSuggestion={renderSuggestion}
+				onSuggestionSelected={(event, { suggestion, method }) => {
+					if (method.toLowerCase() === 'enter') {
+						history.push(`/movies/${suggestion.id}`);
+					}
+				}}
 			/>
 		</div>
 	);

@@ -1,0 +1,43 @@
+@import '../../assets//sass/variables';
+
+.search-result {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    &__img {
+        width: 50px;
+        display: block;
+        margin-right: 1rem;
+    }
+
+    &__details {
+        flex: 1;
+    }
+
+    &__name {
+        font-size: 1.1rem;
+        display: block;
+    }
+
+    &__date,
+    &__rating {
+        display: inline-block;
+        color: darken($light, 20);
+        font-size: .9rem;
+    }
+
+    &__rating {
+        svg {
+            margin-bottom: 3px;
+            margin-right: 2px;
+        }
+
+        &::after {
+            content: '\007C';
+            display: inline-block;
+            margin: 0 .5rem;
+        }
+    }
+
+}

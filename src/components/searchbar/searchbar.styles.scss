@@ -1,4 +1,77 @@
-.test {
-    background-color: white;
-    color: black;
+@import '../../assets/sass/mixins';
+@import '../../assets/sass/variables';
+
+.searchbar {
+    margin: 0.7rem 0 0 0;
+    width: 100%;
+
+    @include respond(large) {
+        width: 20rem;
+        margin: 0;
+    }
+}
+
+.react-autosuggest {
+
+    &__container {
+        position: relative;
+    }
+
+    &__input {
+        width: 100%;
+        background-color: #212028;
+        border: none;
+        font-family: inherit;
+        color: $light;
+        font-size: 1rem;
+        padding: 0.5rem 1.25rem;
+        font-weight: 400;
+        border-radius: 6px;
+    }
+
+    &__input--focused {
+        outline: none;
+    }
+
+
+    &__suggestions-container {
+        display: none;
+    }
+
+    &__suggestions-container--open {
+        position: absolute;
+        display: block;
+        background-color: #212028;
+        margin-top: 3px;
+        font-family: inherit;
+        font-weight: 400;
+        font-size: 1rem;
+        border-radius: 6px;
+        width: 100%;
+        overflow-y: auto;
+        max-height: 400px;
+    }
+
+    &__suggestions-list {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    &__suggestion {
+        cursor: pointer;
+        padding: .8rem 1.25rem;
+        border-bottom: 1px solid rgba($white, 0.02);
+
+        a,
+        a:link,
+        a:visited {
+            color: $light;
+            text-decoration: none;
+        }
+    }
+
+    &__suggestion--highlighted {
+        background-color: lighten($secondary, 5);
+    }
 }
