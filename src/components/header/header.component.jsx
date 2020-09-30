@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
+import Searchbar from '../searchbar/searchbar.component';
 import { ReactComponent as Logo } from '../../assets/images/logo/logo.svg';
 
 import './header.styles.scss';
@@ -14,13 +15,12 @@ const Navigation = () => {
 			bg='secondary'
 			sticky='top'
 			variant='dark'
-			expand='md'
+			expand='lg'
 			className='py-3'>
 			<Container>
 				<Navbar.Brand as={NavLink} to='/'>
 					<Logo className='nav-logo' />
 				</Navbar.Brand>
-				<Navbar.Toggle aria-controls='navbar-nav' />
 				<Navbar.Collapse id='navbar-nav'>
 					<Nav.Link as={NavLink} exact to='/'>
 						Home
@@ -32,6 +32,8 @@ const Navigation = () => {
 						About
 					</Nav.Link>
 				</Navbar.Collapse>
+				<Searchbar />
+				<Navbar.Toggle aria-controls='navbar-nav' />
 			</Container>
 		</Navbar>
 	);

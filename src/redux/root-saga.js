@@ -4,6 +4,7 @@ import { moviesSagas } from './movies/movies.sagas';
 import { movieSagas } from './movie/movie.sagas';
 import { tvShowsSagas } from './tv-shows/tv-shows.sagas';
 import { tvShowSagas } from './tv-show/tv-show.sagas';
+import { searchSagas } from './search/search.sagas';
 
 export default function* rootSaga() {
 	yield all([
@@ -11,5 +12,6 @@ export default function* rootSaga() {
 		call(tvShowsSagas),
 		call(movieSagas),
 		call(tvShowSagas),
+		call(searchSagas),
 	]);
 }
