@@ -16,7 +16,8 @@ const MovieDetailsPage = lazy(() =>
 const TvShowDetailsPage = lazy(() =>
 	import('./pages/tv-show-details/tv-show-details.page')
 );
-const AboutPage = lazy(() => import('./pages/about/about.page'));
+const CreditsPage = lazy(() => import('./pages/credits/credits.page'));
+const LicencePage = lazy(() => import('./pages/licence/licence.page'));
 const NotFound = lazy(() =>
 	import('./components/not-found/not-found.component')
 );
@@ -32,7 +33,8 @@ const App = () => {
 							<Route exact path='/movies' component={MoviesPage} />
 							<Route exact path='/movies/:id' component={MovieDetailsPage} />
 							<Route exact path='/tv-shows/:id' component={TvShowDetailsPage} />
-							<Route exact path='/about' component={AboutPage} />
+							<Route exact path='/credits' component={CreditsPage} />
+							<Route exact path='/licence' component={LicencePage} />
 							<Route exact path='/' component={HomePage} />
 							{/* Fallback route */}
 							<Route exact path='*' component={NotFound} />

@@ -29,8 +29,11 @@ const Navigation = () => {
 					<Nav.Link as={NavLink} exact to='/movies' aria-label='Movies'>
 						Movies
 					</Nav.Link>
-					<Nav.Link as={NavLink} exact to='/about' aria-label='About'>
-						About
+					<Nav.Link as={NavLink} exact to='/credits' aria-label='Credits'>
+						Credits
+					</Nav.Link>
+					<Nav.Link as={NavLink} exact to='/licence' aria-label='Licence'>
+						Licence
 					</Nav.Link>
 				</Navbar.Collapse>
 				<Searchbar />
