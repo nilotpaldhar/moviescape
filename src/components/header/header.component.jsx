@@ -18,18 +18,18 @@ const Navigation = () => {
 			expand='lg'
 			className='py-3'>
 			<Container>
-				<Navbar.Brand as={NavLink} to='/'>
+				<Navbar.Brand as={NavLink} to='/' aria-label='Home'>
 					<Logo className='nav-logo' />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='navbar-nav' />
 				<Navbar.Collapse id='navbar-nav'>
-					<Nav.Link as={NavLink} exact to='/'>
+					<Nav.Link as={NavLink} exact to='/' aria-label='Home'>
 						Home
 					</Nav.Link>
-					<Nav.Link as={NavLink} exact to='/movies'>
+					<Nav.Link as={NavLink} exact to='/movies' aria-label='Movies'>
 						Movies
 					</Nav.Link>
-					<Nav.Link as={NavLink} exact to='/about'>
+					<Nav.Link as={NavLink} exact to='/about' aria-label='About'>
 						About
 					</Nav.Link>
 				</Navbar.Collapse>

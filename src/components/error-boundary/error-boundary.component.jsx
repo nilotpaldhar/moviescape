@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Container from 'react-bootstrap/Container';
+import './error-boundary.styles.scss';
 
 export class ErrorBoundary extends Component {
 	constructor() {
@@ -22,7 +24,16 @@ export class ErrorBoundary extends Component {
 		const { children } = this.props;
 
 		if (hasErrored) {
-			return <h1>This page is broken</h1>;
+			return (
+				<div className='error-boundary'>
+					<Container>
+						<h1 className='error-boundary__title'>This page is broken</h1>
+						<p className='error-boundary__desc'>
+							Oops! Something really bad happened. We will fix it soon.
+						</p>
+					</Container>
+				</div>
+			);
 		}
 
 		return children;
