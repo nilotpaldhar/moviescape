@@ -6,7 +6,7 @@
 
 [![Twitter: NilotpalDhar97](https://img.shields.io/twitter/follow/NilotpalDhar97.svg?style=social)](https://twitter.com/NilotpalDhar97)
 
-[![Project Image](https://iili.io/26qK5g.png)]
+![Project Image](https://iili.io/26qK5g.png)
 
 ### 🏠 [Live Website](https://moviescape.netlify.app)
 
